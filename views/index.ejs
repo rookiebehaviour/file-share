@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>File Share</title>
+    <title>File Share Microservice</title>
     <style>
       body {
-        background-color: #2f4f4f;
+        background-color: #3c3c3c;
         color: white;
       }
 
@@ -20,7 +20,7 @@
       }
 
       a:hover {
-        color: #608c8ce3;
+        color: #ffc0cb;
       }
 
       form {
@@ -29,7 +29,7 @@
         grid-template-columns: auto 1fr;
         max-width: 500px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 2rem;
       }
 
       button {
@@ -43,24 +43,45 @@
       }
 
       button:hover {
-        background: linear-gradient(190deg, #2f4f4f, #fff, #2f4f4f);
+        background: linear-gradient(190deg, #ffc0cb, #fff, #ffc0cb);
       }
 
       input {
         padding: 5px;
         border-radius: 5px;
         border: none;
+        outline: none;
+      }
+
+      input::-webkit-file-upload-button {
+        background-color: #ffc0cb;
+        padding: 5px 10px;
+        margin-right: 8px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
       }
 
       footer {
         text-align: center;
-        padding: 20px;
+        padding: 2rem;
       }
 
       .success {
         text-align: center;
         font-size: 20px;
         padding: 15px 0;
+      }
+
+      .app {
+        max-width: 600px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
       }
     </style>
   </head>
@@ -71,14 +92,16 @@
       <a href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
     </div>
     <% } %>
-    <h1>Secure File Sharing Microservice</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-      <label for="file">File:</label>
-      <input type="file" id="file" name="file" required />
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" />
-      <button type="submit">Share</button>
-    </form>
+    <div class="app">
+      <h1>Secure File Sharing Microservice</h1>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">File:</label>
+        <input type="file" id="file" name="file" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+        <button type="submit">Share</button>
+      </form>
+    </div>
     <footer>
       <small
         >This microservice is
